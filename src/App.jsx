@@ -9,11 +9,17 @@ import ContactsPage from './pages/ContactsPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import { products, categories } from './data/products.js';
 import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout.jsx';
 
 const App = () => {
     return (
         <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Layout />} >
+                <Route index element={<HomePage />} />
+                <Route path="catalog" element={<CatalogPage/>} />
+                <Route path="about" element={<AboutPage/>} />
+                <Route path="contacts" element={<ContactsPage/>} />
+            </Route>
         </Routes>
     )
 }
